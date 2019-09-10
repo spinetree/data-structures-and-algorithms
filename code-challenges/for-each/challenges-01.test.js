@@ -68,12 +68,12 @@ Return the modified array.
 const removeOne = (num, arr) => {
   if (num % 3 === 2) {
     arr.pop();
-  } 
+  }
 };
 
 const removeElements = (arr, callback) => {
   for (let i = 0; i < arr.length; i++) {
-    callback(arr[i],arr);
+    callback(arr[i], arr);
   };
   return arr;
 };
@@ -92,9 +92,9 @@ CHALLENGE 4
 Write a function named removeWithForEach that produces the same output as challenge 3, but uses forEach.
 ------------------------------------------------------------------------------------------------ */
 
-const removeWithForEach = (arr, callback) => { 
+const removeWithForEach = (arr, callback) => {
   arr.forEach(i => callback(arr[i], arr));
-	return arr; 
+  return arr;
 };
 
 // xdescribe('Testing challenge 4', () => {
@@ -115,8 +115,21 @@ This anonymous function should accept up to three arguments: the element, the in
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithAnon = (arr) => {
-  
+  arr.forEach(function(num, index, array) {
+    if (num % 3 === 2) {
+      arr.pop();
+    }
+  })
+	return arr;
 };
+
+
+// describe('Testing challenge 5', () => {
+//   test('It should remove three elements from the array', () => {
+//     expect(removeWithAnon([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toStrictEqual([1, 2, 3, 4, 5, 6, 7]);
+//     expect(removeWithAnon([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).length).toStrictEqual(7);
+//   });
+// });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -136,8 +149,36 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  
+  
+
 };
+
+
+// xdescribe('Testing challenge 6', () => {
+//   const inventory = [{
+//     name: 'apples',
+//     available: true
+//   }, {
+//     name: 'pears',
+//     available: true
+//   }, {
+//     name: 'oranges',
+//     available: false
+//   }, {
+//     name: 'bananas',
+//     available: true
+//   }, {
+//     name: 'blueberries',
+//     available: false
+//   }];
+
+//   test('It should only add the available items to the list', () => {
+//     expect(createList(inventory)).toStrictEqual(['apples', 'pears', 'bananas']);
+//     expect(createList(inventory).length).toStrictEqual(3);
+//   });
+// });
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -195,7 +236,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should remove three elements from the array', () => {
     expect(removeWithAnon([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toStrictEqual([1, 2, 3, 4, 5, 6, 7]);
     expect(removeWithAnon([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).length).toStrictEqual(7);
