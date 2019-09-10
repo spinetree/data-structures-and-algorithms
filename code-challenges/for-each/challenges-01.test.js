@@ -9,7 +9,7 @@ Then, write a function named speaker that takes in a string and a callback funct
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-    return word.toUpperCase();
+  return word.toUpperCase();
 };
 
 const speaker = (message, callback) => {
@@ -35,14 +35,14 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-        arr.push(value);
-    };
+  arr.push(value);
+};
 
 const addNumbers = (num, arr, times, callback) => {
-    for (let i = 0; i < times; i++) {
-        callback(arr, num);
-    };
-    return arr;
+  for (let i = 0; i < times; i++) {
+    callback(arr, num);
+  };
+  return arr;
 };
 
 
@@ -66,12 +66,25 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const removeOne = (num, arr) => {
-  // Solution code here...
+  if (num % 3 === 2) {
+    arr.pop()
+  } 
 };
 
 const removeElements = (arr, callback) => {
-  // Solution code here...
+  for (let i = 0; i < arr.length; i++) {
+    callback(arr[i],arr);
+  };
+  return arr;
 };
+
+// describe('Testing challenge 3', () => {
+//   test('It should remove three elements from the array', () => {
+//     expect(removeElements([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], removeOne)).toStrictEqual([1, 2, 3, 4, 5, 6, 7]);
+//     expect(removeElements([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], removeOne).length).toStrictEqual(7);
+//   });
+// });
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -147,20 +160,20 @@ Run your tests from the console: jest challenges-01.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-describe('Testing challenge 1', () => {
+xdescribe('Testing challenge 1', () => {
   test('It should return the message with all uppercase characters', () => {
     expect(speaker('hello 301 students!', greeting)).toStrictEqual('HELLO 301 STUDENTS!');
   });
 });
 
-describe('Testing challenge 2', () => {
+xdescribe('Testing challenge 2', () => {
   test('It should add the number 8 to the array five times', () => {
     expect(addNumbers(8, [], 5, addValues)).toStrictEqual([8, 8, 8, 8, 8]);
     expect(addNumbers(8, [], 5, addValues).length).toStrictEqual(5);
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should remove three elements from the array', () => {
     expect(removeElements([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], removeOne)).toStrictEqual([1, 2, 3, 4, 5, 6, 7]);
     expect(removeElements([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], removeOne).length).toStrictEqual(7);
@@ -182,7 +195,22 @@ xdescribe('Testing challenge 5', () => {
 });
 
 xdescribe('Testing challenge 6', () => {
-  const inventory = [{ name: 'apples', available: true }, { name: 'pears', available: true }, { name: 'oranges', available: false }, { name: 'bananas', available: true }, { name: 'blueberries', available: false }];
+  const inventory = [{
+    name: 'apples',
+    available: true
+  }, {
+    name: 'pears',
+    available: true
+  }, {
+    name: 'oranges',
+    available: false
+  }, {
+    name: 'bananas',
+    available: true
+  }, {
+    name: 'blueberries',
+    available: false
+  }];
 
   test('It should only add the available items to the list', () => {
     expect(createList(inventory)).toStrictEqual(['apples', 'pears', 'bananas']);
