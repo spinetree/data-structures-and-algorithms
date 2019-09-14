@@ -32,8 +32,29 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  // Solution code here...
+
+  if (str.match(/\b[A-Z][a-z]*/g)) {
+    let output = str.match(/\b[A-Z][a-z]*/g);
+    console.log(output);
+    return output;
+  } else {
+    return [];
+  }
+
 };
+
+// describe('Testing challenge 2', () => {
+//   test('It should only return words that begin with a capital letter', () => {
+//     const capitalResult = isCapitalized('We only want to Return the Words that begin With a capital Letter');
+
+//     expect(capitalResult).toStrictEqual([ 'We', 'Return', 'Words', 'With', 'Letter' ]);
+//     expect(capitalResult.length).toStrictEqual(5);
+
+//     expect(isCapitalized('Given by our hand in the meadow that is called Runnymede, between Windsor and Staines, on the fifteenth day of June in the seventeenth year of our reign (i.e. 1215: the new regnal year began on 28 May).')).toStrictEqual(['Given', 'Runnymede', 'Windsor', 'Staines', 'June', 'May']);
+
+//     expect(isCapitalized('these words are all failures')).toStrictEqual([]);
+//   });
+// });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -118,7 +139,7 @@ Run your tests from the console: jest challenges-04.solution.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-describe('Testing challenge 1', () => {
+xdescribe('Testing challenge 1', () => {
   test('It should return true if the input is a number', () => {
     expect(isNum(1234567890)).toBeTruthy();
     expect(isNum('12345')).toBeTruthy();
@@ -132,7 +153,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should only return words that begin with a capital letter', () => {
     const capitalResult = isCapitalized('We only want to Return the Words that begin With a capital Letter');
 
