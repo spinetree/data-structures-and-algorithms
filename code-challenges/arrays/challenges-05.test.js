@@ -14,15 +14,15 @@ For example, if the input is 'Welcome', the output will be:
 ------------------------------------------------------------------------------------------------ */
 
 const howMuchPencil = (str) => {
-  
+
   let result = [];
-  
+
   let strLetters = str.split('');
-  
+
   strLetters.forEach(letter => {
     result.push(strLetters.join(''));
-    strLetters = strLetters.slice(1,strLetters.length);
-    
+    strLetters = strLetters.slice(1, strLetters.length);
+
   });
 
   result.push('');
@@ -40,7 +40,11 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  // Solution code here...
+  
+  let result = [];
+  result = arr.split('');
+  return result;
+
 };
 
 
@@ -86,9 +90,20 @@ const gruffaloCrumble = {
 
 
 const listFoods = (recipe) => {
-  let result = [];
-  // Solution code here...
-  return result;
+
+  const list = []; 
+  
+  recipe.ingredients.forEach(ingredient => {
+    let ingredientArray = ingredient.split(' ');
+    // console.log(ingredientArray);
+    let listItem = ingredientArray.slice(2);  
+    listItem = listItem.join(' ');
+    // console.log(listItem);
+    list.push(listItem);
+  });
+  // console.log(list);
+  return list; 
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -217,7 +232,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return an array of individual letters', () => {
     expect(wordsToCharList('Gregor')).toStrictEqual(['G', 'r', 'e', 'g', 'o', 'r']);
     expect(wordsToCharList('Gregor').length).toStrictEqual(6);
@@ -226,7 +241,7 @@ xdescribe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return a list of foods', () => {
     expect(listFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
     expect(listFoods(gruffaloCrumble).length).toStrictEqual(11);
