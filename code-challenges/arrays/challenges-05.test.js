@@ -91,18 +91,26 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
 
-  const list = []; 
+
+  const result = [];
   
+  const numbersX = /[0-9]* /;
+  // const unitsX = /medium-sized |pounds |gallons |pound |cups /;
+
   recipe.ingredients.forEach(ingredient => {
-    let ingredientArray = ingredient.split(' ');
-    // console.log(ingredientArray);
-    let listItem = ingredientArray.slice(2);  
-    listItem = listItem.join(' ');
-    // console.log(listItem);
-    list.push(listItem);
+    
+    ingredient = ingredient.replace(numbersX,'');
+
+    const ingredientArray = [];
+
+    const unitPosition = ingredient.indexOf(' ');
+    ingredient = ingredient.slice(unitPosition+1);
+    result.push(ingredient);
+
   });
-  // console.log(list);
-  return list; 
+
+  console.log(result);
+  return result; 
 
 };
 
@@ -116,7 +124,9 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+
+
+
   return result;
 };
 
