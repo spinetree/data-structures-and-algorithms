@@ -151,7 +151,14 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
+
+  recipe.steps.forEach(step => {
+
+    let stepArray = step.split(' ');
+    result.push(stepArray[0]);  
+    // console.log(stepArray);
+  });
+
   return result;
 };
 
@@ -169,7 +176,35 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+
+  const removeThese = [];
+
+  for (let i= 0;i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      removeThese.push(i);
+    };
+  };
+
+  console.log(removeThese);
+  
+  removeThese.forEach(index => {
+    arr.splice(index,1,"deleteme");  
+  });
+  
+  for (let i = 0; i < arr.length; i++) {
+    
+    console.log(arr[i]);
+
+    if(arr[i] === "deleteme") {
+      arr.splice(i,1);      
+      // console.log('deleted ' + i);
+      i--;
+    };
+  
+  }
+
+  return arr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -273,14 +308,14 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return a list of recipe steps', () => {
     expect(stepActions(gruffaloCrumble)).toStrictEqual(['Pre-heat', 'De-prickle', 'Sprinkle', 'Mix', 'Grease', 'Combine', 'Fold', 'Spread', 'Bake']);
     expect(stepActions(gruffaloCrumble).length).toStrictEqual(9);
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should remove the even numbers from the array', () => {
     let list = [1, 2, 3, 4, 5, 6];
     removeEvenValues(list);
