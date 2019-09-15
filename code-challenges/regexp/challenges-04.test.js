@@ -142,7 +142,14 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = str => {
-  // Solution code here...
+
+  let regex = /\b[a-z]+ |\b[0-9]+ /gi;  
+  
+  const output = str.match(regex);
+  
+  console.log(output);
+  return(output);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -158,8 +165,28 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
 let hangman = (str) => {
-  // Solution code here...
+  
+  let regex = /a|e|i|o|u/gi;  
+
+  const output = str.replace(regex,'_');
+  
+  console.log(output);
+  return(output);
+
 };
+
+// describe('Testing challenge 6', () => {
+//   let startString = 'This is a regex challenge. We are trying to create a hangman phrase where all of the vowels are missing!';
+
+//   test('It should remove the vowels from the hangman string and replace them with underscores', () => {
+//     expect(hangman(startString)).toStrictEqual('Th_s _s _ r_g_x ch_ll_ng_. W_ _r_ try_ng t_ cr__t_ _ h_ngm_n phr_s_ wh_r_ _ll _f th_ v_w_ls _r_ m_ss_ng!');
+//     expect(hangman('I wAnt them all tO bE removed and replaced with Underscores.')).toStrictEqual('_ w_nt th_m _ll t_ b_ r_m_v_d _nd r_pl_c_d w_th _nd_rsc_r_s.');
+//   });
+
+//   test('It should not contain the letters "a", "e", "i", "o", or "u"', () => {
+//     expect(hangman(startString)).not.toContain('a', 'e', 'i', 'o', 'u');
+//   });
+// });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -231,7 +258,7 @@ xdescribe('Testing challenge 3', () => {
   });
 });
 
-describe('Testing challenge 4', () => {
+xdescribe('Testing challenge 4', () => {
   test('It should match any of the acceptable inputs', () => {
     expect(matchMonth('Oct')).toBeTruthy();
     expect(matchMonth('oct')).toBeTruthy();
@@ -276,7 +303,7 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return an array of instances of "sells", shells", and "seashells"', () => {
     expect(findShells(seashells)).toStrictEqual(['sells', 'seashells', 'shells', 'sells', 'seashells', 'sells', 'shells', 'sells', 'shells']);
     expect(findShells(seashells).length).toStrictEqual(9);
