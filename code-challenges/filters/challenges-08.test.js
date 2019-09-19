@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use strict';
 
 /* ------------------------------------------------------------------------------------------------
@@ -52,13 +53,13 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 const notInFirstArray = (forbiddenValues, arr) => {
 
   let candidateArr = arr;
-  
+
   forbiddenValues.forEach(fValue => {
-    
+
     candidateArr = candidateArr.filter(candidate => {
-      return candidate !== fValue;       
+      return candidate !== fValue;
     });
-  
+
   });
   return candidateArr;
 
@@ -104,7 +105,14 @@ const snorlaxData = {
 };
 
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
-  // Solution code here...
+
+  let tempStats = arr.filter(statObj => {
+    return statObj.baseStat > minBaseStat;
+  });
+
+  // console.log(tempStats);
+  // let highStats = tempStats.map(statObj => statObj.stat.name);
+  return tempStats;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -116,7 +124,15 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 ------------------------------------------------------------------------------------------------ */
 
 const getStatName = (arr, minBaseStat) => {
-  // Solution code here...
+
+  let tempStats = arr.filter(statObj => {
+    return statObj.baseStat > minBaseStat;
+  });
+
+  // console.log(tempStats);
+  let highStats = tempStats.map(statObj => statObj.stat.name);
+  return highStats;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -252,7 +268,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return the name of the stats that exceed that maximum', () => {
     expect(getStatName(snorlaxData.stats, 50)).toStrictEqual([ 'special-defense', 'special-attack' ]);
     expect(getStatName(snorlaxData.stats, 50).length).toStrictEqual(2);
