@@ -32,7 +32,17 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
 
+  let sum = 0;
+  input.forEach(array => {
+    // console.log(array);
 
+    array.forEach(element => {
+      // console.log(element);
+      sum += element;
+      // console.log(sum);
+    });
+  })
+  return sum
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -150,7 +160,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should add all the numbers in the arrays', () => {
     const nums = [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]];
 
