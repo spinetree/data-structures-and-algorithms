@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use strict';
 
 /* ------------------------------------------------------------------------------------------------
@@ -40,7 +41,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  
+
   let result = [];
   result = arr.split('');
   return result;
@@ -93,12 +94,12 @@ const listFoods = (recipe) => {
 
 
   const result = [];
-  
+
   const numbersX = /[0-9]* /;
   // const unitsX = /medium-sized |pounds |gallons |pound |cups /;
 
   recipe.ingredients.forEach(ingredient => {
-    
+
     ingredient = ingredient.replace(numbersX,'');
 
     const ingredientArray = [];
@@ -110,7 +111,7 @@ const listFoods = (recipe) => {
   });
 
   console.log(result);
-  return result; 
+  return result;
 
 };
 
@@ -123,13 +124,13 @@ You may also use other string or array methods.
 ------------------------------------------------------------------------------------------------ */
 
 const splitFoods = (recipe) => {
-  
+
   let result = [];
 
   recipe.ingredients.forEach(ingredient => {
     let ingredientArray = ingredient.split(' ');
     console.log(ingredientArray);
-    let listItem = ingredientArray.slice(2);  
+    let listItem = ingredientArray.slice(2);
     listItem = listItem.join(' ');
     console.log(listItem);
     result.push(listItem);
@@ -155,7 +156,7 @@ const stepActions = (recipe) => {
   recipe.steps.forEach(step => {
 
     let stepArray = step.split(' ');
-    result.push(stepArray[0]);  
+    result.push(stepArray[0]);
     // console.log(stepArray);
   });
 
@@ -182,25 +183,25 @@ const removeEvenValues = (arr) => {
   for (let i= 0;i < arr.length; i++) {
     if (arr[i] % 2 === 0) {
       removeThese.push(i);
-    };
-  };
+    }
+  }
 
   console.log(removeThese);
-  
+
   removeThese.forEach(index => {
-    arr.splice(index,1,"deleteme");  
+    arr.splice(index,1,'deleteme');
   });
-  
+
   for (let i = 0; i < arr.length; i++) {
-    
+
     console.log(arr[i]);
 
-    if(arr[i] === "deleteme") {
-      arr.splice(i,1);      
+    if(arr[i] === 'deleteme') {
+      arr.splice(i,1);
       // console.log('deleted ' + i);
       i--;
-    };
-  
+    }
+
   }
 
   return arr;
@@ -230,9 +231,9 @@ const removeLastCharacters = (str, numberOfCharacters) => {
     return str;
   } else if (numberOfCharacters > str.length){
     return output;} else {
-      output = str.slice(0,-numberOfCharacters)
-      return output;
-    }; 
+    output = str.slice(0,-numberOfCharacters)
+    return output;
+  }
 
 };
 
