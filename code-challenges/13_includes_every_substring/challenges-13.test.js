@@ -30,7 +30,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 
 const findHappiness = (arr) => {
 
-  let regex = /\:\)/;
+  let regex = /:\)/;
   let happyStrings = arr.filter(string => regex.test(string));
   return happyStrings;
 };
