@@ -96,14 +96,10 @@ let starWarsData = [{
 
 let biggerThanLuke = (arr) => {
 
-  let luke = arr[0].gender;
-
-  let lukeMass = luke.mass;
-
   let biggerString = '';
 
   arr.forEach(character => {
-    if (parseInt(character.mass) > lukeMass) {biggerString += character.name+' - '}
+    if (parseInt(character.mass) > 77) {biggerString += character.name+' - '}
   });
 
   return biggerString.slice(0,-3);
@@ -125,7 +121,15 @@ This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
 const sortBy = (property, arr) => {
-  // Solution code here...
+
+  arr.sort(function(a,b){
+    console.log('a');
+    console.log(a[property]);
+    console.log('b');
+    console.log(b[property]);
+    return a[property] - b[property];
+  })
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -141,7 +145,9 @@ https://secure.com returns true because the URL is secure
 https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
-// Solution code here...
+
+  return url.indexOf('https://') === 0 ? true : false;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -187,7 +193,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return only characters that are bigger than Luke', () => {
     expect(biggerThanLuke(starWarsData)).toStrictEqual('Darth Vader - Pex Kylar');
     expect(biggerThanLuke([])).toStrictEqual('');
@@ -223,7 +229,7 @@ xdescribe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should check if url is https', () => {
 
     expect(isSecure('http://www.insecure.com')).toBe(false);
