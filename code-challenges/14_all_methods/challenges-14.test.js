@@ -146,7 +146,7 @@ https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
 
-  return url.indexOf('https://') === 0 ? true : false;
+  return url.indexOf('https://') === 0;
 
 };
 
