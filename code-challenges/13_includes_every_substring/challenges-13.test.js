@@ -62,7 +62,17 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+
+  let arr = str.split('');
+  let output = '';
+
+  arr.map((element,index) => {
+    if (index % 2 !== 0) {
+      output += element;
+    }
+  });
+  return output;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -72,7 +82,16 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+
+  let allStringsHappy = true;
+
+  arr.map((string,index) => {
+    if (string.indexOf(':)') === -1) {
+      allStringsHappy = false;
+    }
+  })
+  return allStringsHappy;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -191,7 +210,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should only return the odd indexed characters from the string', () => {
     expect(onlyOddChars('0123456789')).toStrictEqual('13579');
     expect(onlyOddChars('abcd')).toStrictEqual('bd');
@@ -200,7 +219,7 @@ xdescribe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should correctly assess whether all the strings are happy', () => {
     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
